@@ -1,0 +1,55 @@
+fastapi 
+# framework used to build the backend
+# fast api provides routing 
+# automatic json
+# documentation and validation 
+
+uvicorn[standard]
+# fast api is your application while
+# uvicorn is the server that runs your application
+# uvicorn[standard] provides you with basic server capabilities and performance optimizations
+# l;ike uvloop and httptools websockets 
+
+
+sqlalchemy
+# sql alchemy helps you think in terms of python objects 
+# and classes rather than sql statements and tables which are
+# difficult to read and maintain. It also provides a layer of abstraction between your code and the database, 
+# making it easier to switch databases if needed.  
+psycopg2-binary
+# connects your python code to a postgresql database.
+# It is a database adapter that allows your application to communicate with the database
+# and perform operations like creating tables, 
+# inserting data, and querying data.
+
+alembic
+# alembic is a database migration tool for SQLAlchemy. 
+# It allows you to manage changes to your database schema 
+# over time, making it easier to evolve your database 
+# structure as your application grows and changes.
+
+pydantic
+# pydantic is a data validation and settings management library for Python.
+pydantic-settings
+#pydantic-settings is a library that provides a way to 
+# manage application settings and configuration 
+# using Pydantic models.
+# It allows you to define your settings as Python classes,
+# which can be easily validated and loaded from various 
+# sources, such as environment variables or configuration 
+# files.   
+python-dotenv
+
+python-jose[cryptography]
+passlib[bcrypt]
+# bcrypt is used to hash passwords and store them securely 
+# in the database.
+
+pytest
+
+httpx
+# use when your API has to make requests to other APIs. 
+# It is a fully featured HTTP client for Python 3, 
+# which provides support for making synchronous and asynchronous 
+# requests, handling cookies and sessions, and working 
+# with JSON data.
