@@ -1,0 +1,17 @@
+FROM python:3.13-slim
+
+WORKDIR /app
+
+COPY requirements/requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 8000
+#does not expose the port to the host machine, but it does make the port available to other containers on the same network.
+#it is simply documenting that the application is expected to listen on the specified port at runtime.
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+#0000 because it is the default IP address that allows the application to listen on all available network interfaces, 
+#including the container's internal network and any external networks that may be connected to the container.
+#otherwise mac wouldnt have been able to access the backend container
