@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+
+  backend:
+    build: ./backend
+    container_name: pulseiq-backend
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ./backend:/app
+
+    depends_on:
+      - postgres
+
+    environment:
+      DATABASE_URL: postgresql://pulseiq:pulseiq@postgres:5432/pulseiq
+
+  postgres:
+    image: postgres:16
+
+    container_name: pulseiq-db
+
+    environment:
+      POSTGRES_USER: pulseiq
+      POSTGRES_PASSWORD: pulseiq
+      POSTGRES_DB: pulseiq
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
